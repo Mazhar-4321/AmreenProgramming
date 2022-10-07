@@ -1,0 +1,61 @@
+package sep30;
+
+import java.util.Scanner;
+
+public class Main {
+    // Arrays
+    // Normal variable is designed to store one value only
+    // Multiple values ----- > array
+    public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+String s= sc.next();
+        System.out.println(binaryToInteger(s));
+       // System.out.println( hexToInteger(s.toUpperCase()));
+
+    }
+    public static Integer hexToInteger(String s){
+        Integer num =0;
+        // 15  = 5*16^0+1*16^1+.....
+        int k=0;
+        for(int i=s.length()-1;i>=0;i--){
+            switch (s.charAt(i)){
+                case '0':num=num+(int)(Math.pow(16,k)*0); break;
+                case '1':num=num+(int)(Math.pow(16,k)*1);break;
+                case '2':num=num+(int)(Math.pow(16,k)*2);break;
+                case '3':num=num+(int)(Math.pow(16,k)*3);break;
+                case '4':num=num+(int)(Math.pow(16,k)*4);break;
+                case '5':num=num+(int)(Math.pow(16,k)*5);break;
+                case '6':num=num+(int)(Math.pow(16,k)*6); break;
+                case '7':num=num+(int)(Math.pow(16,k)*7);break;
+                case '8':num=num+(int)(Math.pow(16,k)*8);break;
+                case '9':num=num+(int)(Math.pow(16,k)*9);break;
+                case 'A':num=num+(int)(Math.pow(16,k)*10); break;
+                case 'B':num=num+(int)(Math.pow(16,k)*11);break;
+                case 'C':num=num+(int)(Math.pow(16,k)*12);break;
+                case 'D':num=num+(int)(Math.pow(16,k)*13);break;
+                case 'E':num=num+(int)(Math.pow(16,k)*14);break;
+                case 'F':num=num+(int)(Math.pow(16,k)*15);break;
+                default:new RuntimeException("Invalid Hex number");return null ;
+
+
+            }
+            k++;
+        }
+
+
+        return num;
+    }
+    public static Integer binaryToInteger(String s){
+        Integer num=0;
+        int k=0;
+        for(int i=s.length()-1;i>=0;i--){
+            switch (s.charAt(i)){
+                case '0':break;
+                case '1':num=num+(int)Math.pow(2,k);break;
+                default:return null;
+            }
+            k++;
+        }
+        return num;
+    }
+}
